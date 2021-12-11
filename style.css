@@ -4,17 +4,114 @@ body{
     font-size: 18px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+    background:  #1D2538;
+    
 }
+
+.header{
+  display: flex;
+  color: #DA2F1B;
+  margin-bottom: 15px;
+  letter-spacing: 0.263em;
+  font-size: 20px;
+}
+
+.settings-and-grid-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 35px;
+}
+
+.settings-section{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+#color-picker{
+  height: 61px;
+  width: 199px;
+} 
+
+.settings-section button{
+  position: relative;
+  background: orangered;
+  border: none;
+  color: white;
+  padding: 15px 24px;
+  font-size: 1.4rem;
+  box-shadow: -6px 6px 0 hsl(16,100%,30%);
+  outline: none;
+}
+
+.settings-section button:hover{
+    background:  hsl(16, 100%, 45%);
+  }
+
+  .settings-section button:active{
+    background: hsl(16, 100%, 40%);
+    top: 3px;
+    left: -3px;
+    box-shadow: -3px 3px 0 hsl(16, 100%, 30%);
+  }
+  .settings-section button::before{
+    position: absolute;
+    display: block;
+    content: "";
+    height: 0;
+    width: 0;
+    /* border width needs to be size of the element's box shadow */
+    border: solid 6px transparent;
+
+    /* border width needs to be size of the element's box shadow */
+    border-right: solid 6px hsl(16, 100%, 30%);
+
+    /* no width for left, makes measurements easier */
+    border-left-width: 0px;
+
+    background: none;
+    top: 0px;
+
+    /* needs to be the same size as border width */
+    left: -6px;
+  }
+  .settings-section button::after{
+    position: absolute;
+    display: block;
+    content: "";
+    height: 0;
+    width: 0;
+    border: solid 6px transparent;
+    border-top: solid 6px hsl(16, 100%, 30%);
+    border-bottom-width: 0px;
+    background: none;
+    right: 0;
+    bottom: -6px;
+  }
+  .settings-section button:active::before{
+    border: solid 3px transparent;
+    border-right: solid 3px hsl(16, 100%, 30%);
+    border-left-width: 0px;
+    left: -3px;
+  }
+  .settings-section button:active::after{
+    border: solid 3px transparent;
+    border-top: solid 3px hsl(16, 100%, 30%);
+    border-bottom-width: 0px;
+    bottom: -3px;
+  }
+
 
 .grid-container{
     display: flex;
     flex-wrap: wrap;
     width: 512px;
     height: 512px;
-    background-color: rgb(112, 112, 112);
+    background-color: #c4bdb7;
     align-items: flex-start;
     flex-basis: auto;
     align-content: flex-start;
@@ -26,10 +123,70 @@ body{
     outline: 1px solid rgb(112, 112, 112);
 }
 
-.grid-container-buttons{
+.grid-container-and-buttons{
   display: flex;
   flex-direction: column;
 }
-grid-size-buttons{
+
+.grid-size-buttons {
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
+
+.grid-size-buttons button{
+  position: relative;
+
+  background: #ecd300; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%)); /* Standard syntax */
+
+  font-size: 1.4rem;
+  text-shadow: 0 -1px 0 #c3af07;
+  color: black;
+  border: solid 1px hsl(54, 100%, 20%);
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  z-index: 4;
+
+  outline: none;
+
+  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+              0 2px 0 hsl(54, 100%, 20%),
+              0 3px 0 hsl(54, 100%, 18%),
+              0 4px 0 hsl(54, 100%, 16%),
+              0 5px 0 hsl(54, 100%, 14%),
+              0 6px 0 hsl(54, 100%, 12%),
+              0 7px 0 hsl(54, 100%, 10%),
+              0 8px 0 hsl(54, 100%, 8%),
+              0 9px 0 hsl(54, 100%, 6%);
+}
+.grid-size-buttons button:hover {
+  background: #ecd300; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(hsl(54, 100%, 45%), hsl(54, 100%, 35%)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(hsl(54, 100%, 45%), hsl(54, 100%, 35%)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(hsl(54, 100%, 45%), hsl(54, 100%, 35%)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(hsl(54, 100%, 45%), hsl(54, 100%, 35%)); /* Standard syntax */
+}
+
+.grid-size-buttons button:active {
+  background: #ecd300; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(hsl(54, 100%, 43%), hsl(54, 100%, 33%)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(hsl(54, 100%, 43%), hsl(54, 100%, 33%)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(hsl(54, 100%, 43%), hsl(54, 100%, 33%)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(hsl(54, 100%, 43%), hsl(54, 100%, 33%)); /* Standard syntax */
+
+  top: 2px;
+
+  box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+              0 2px 0 hsl(54, 100%, 20%),
+              0 3px 0 hsl(54, 100%, 18%),
+              0 4px 0 hsl(54, 100%, 16%),
+              0 5px 0 hsl(54, 100%, 14%),
+              0 6px 0 hsl(54, 100%, 12%),
+              0 7px 0 hsl(54, 100%, 10%);
+}
+
